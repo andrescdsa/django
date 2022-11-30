@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir Selección</title>
+</head>
+<body>
+    <form action ="masseleccion" method="post">
+        {%csrf_token%}
+        <label>Continente: <input type="text" name="continentemas"/></label>
+        <label>Selección: <input type="text" name="seleccion"/></label>
+        <label>Mundiales Ganados: <input type="text" name="ganados"/></label>
+        <input type="hidden" name="action" value= "masseleccion" />
+        <input type="hidden" name="titulo" value= "{{titulo_tabla}}" />
+        <input type="submit" value="Añadir Seleccion" />
+    </form>
+</body>
+</html>

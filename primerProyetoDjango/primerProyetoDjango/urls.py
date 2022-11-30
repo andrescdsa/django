@@ -25,5 +25,6 @@ urlpatterns = [
     path('goodbye/', adios),
     path('deportes/', deportes, name="deportes"),
     path('alumnos/listar_alumnos/', listar_alumnos, name="datos_alumnos"),
-    path('deportes/futbol/equipos_mundial/', listar_equipos_mundial, name="equipos_mundial"),
+    path('deportes/futbol/equipos_mundial', listar_equipos_mundial, name="equipos_mundial"),
+    path('deportes/futbol/masseleccion', listar_equipos_mundial, name="masseleccion"),
 ]

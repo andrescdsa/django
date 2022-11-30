@@ -5,33 +5,43 @@
     <title>Selecciones mundial</title>
 </head>
 <body>
-<form>
+<form action ="equipos_mundial" method="post">
+    {%csrf_token%}
     <fieldset>
         <legend>Prueba Datalist</legend>
-        <label>Buscar: <input type="text" name="seleccion" list="seleccion" />
-            <datalist id="seleccion">
-                {% for seleccion in listado_selecciones %}
-                    <option value="{{alumno.continente}}"></option>
+        <label>Buscar: <input type="text" name="continente" list="continente" />
+            <datalist id="continente">
+                {% for continente in listado_continentes %}
+                    <option value="{{continente}}" ></option>
                 {% endfor %}
             </datalist>
         </label>
     </fieldset>
+    <input type="hidden" name="titulo" value="{{titulo_tabla}}" />
+    <input type="hidden" name="action" value= "equipos_mundial" />
+    <input type="submit" value="Filtrar" />
+
 </form>
-<table>
-  <tr>
-    <th>Seleccion</th>
-    <th>Continente</th>
-    <th>Mundiales Ganados</th>
-  </tr>
-  {% for seleccion in listado_selecciones %}
-  <tr>
+<p></p><a href="{% url 'masseleccion' %}"> Añadir Selección </a></p>
+<table border="1" title="{{titulo_tabla}}">
+    <thead>
+      <tr>
+        <th>Selección</th>
+        <th>Continente</th>
+        <th>Mundiales Ganados</th>
+      </tr>
+    </thead>
+    <tbody >
+      {% for seleccion in listado_selecciones %}
+      <tr >
 
-    <td> {{seleccion.seleccion}} </td>
-    <td> {{seleccion.continente}} </td>
-    <td> {{seleccion.ganados}} </td>
+        <td> {{seleccion.seleccion}} </td>
+        <td> {{seleccion.continente}} </td>
+        <td> {{seleccion.ganados}} </td>
 
-  </tr>
-  {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
 </table>
 <p></p><a href="{% url 'inicio' %}"> Inicio </a></p>
 </body>
