@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Selecciones mundial</title>
+</head>
+<body>
+<form>
+    <fieldset>
+        <legend>Prueba Datalist</legend>
+        <label>Buscar: <input type="text" name="seleccion" list="seleccion" />
+            <datalist id="seleccion">
+                {% for seleccion in listado_selecciones %}
+                    <option value="{{alumno.continente}}"></option>
+                {% endfor %}
+            </datalist>
+        </label>
+    </fieldset>
+</form>
+<table>
+  <tr>
+    <th>Seleccion</th>
+    <th>Continente</th>
+    <th>Mundiales Ganados</th>
+  </tr>
+  {% for seleccion in listado_selecciones %}
+  <tr>
+
+    <td> {{seleccion.seleccion}} </td>
+    <td> {{seleccion.continente}} </td>
+    <td> {{seleccion.ganados}} </td>
+
+  </tr>
+  {% endfor %}
+</table>
+<p></p><a href="{% url 'inicio' %}"> Inicio </a></p>
+</body>
+</html>
